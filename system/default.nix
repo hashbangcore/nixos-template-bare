@@ -18,22 +18,21 @@
   time.timeZone = "UTC";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  users.users."hash" = {
+  users.users."username" = {
     isNormalUser = true;
     extraGroups = ["wheel"];
-    initialPassword = "hash";
+    initialPassword = "password";
   };
 
   networking = {
-    hostName = "minimal";
+    hostName = "hostname";
     useDHCP = lib.mkDefault true;
     firewall.enable = true;
   };
 
-  services.openssh.enable = true;
+  services.openssh.enable = false;
 
   environment.systemPackages = with pkgs; [
-    git
-    neovim
+    vis
   ];
 }
