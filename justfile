@@ -18,6 +18,9 @@ clean:
 commit hint="":
     netero commit -c ./docs/convention.txt "{{ hint }}" | git commit --edit -F -
 
+error:
+    nix flake check --show-trace > error.txt 2>&1
+
 fmt:
     alejandra .
     just --fmt
